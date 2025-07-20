@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Available Jobs</h2>
+<form method="get">
+    <select name="dept">
+        <option value="">All Departments</option>
+        <option value="Technology">Technology</option>
+        <option value="Healthcare">Healthcare</option>
+    </select>
+    <button type="submit">Filter</button>
+</form>
+
+<ul>
+    {% for job in jobs %}
+        <li>
+            <h3>{{ job.title }}</h3>
+            <img src="{{ url_for('static', filename='logos/' + job.logo) }}" width="100">
+            <p>{{ job.desc }}</p>
+            <a href="{{ url_for('job_detail', id=job.id) }}">View Details</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

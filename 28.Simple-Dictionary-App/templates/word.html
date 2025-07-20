@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Definition Result</h2>
+{% if definition %}
+    <p><strong>{{ word }}</strong> ({{ lang }}) – {{ definition }}</p>
+{% else %}
+    <p>No definition found for <strong>{{ word }}</strong> in selected language.</p>
+{% endif %}
+<a href="{{ url_for('home') }}">Back to Search</a>
+{% endblock %}

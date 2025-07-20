@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #eef;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+input, button {
+    padding: 8px;
+    margin-top: 5px;
+}
+
+.grade {
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.a { color: green; }
+.b { color: blue; }
+.c { color: orange; }
+.d { color: darkorange; }
+.f { color: red; }
+
+.error {
+    color: red;
+    font-weight: bold;
+}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="{{ url_for('add_entry') }}" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required><br>
+    <textarea name="message" placeholder="Leave a message" required></textarea><br>
+    <button type="submit">Add Entry</button>
+</form>
+
+<h2>Guestbook Entries</h2>
+<ul>
+    {% for entry in entries %}
+        <li>
+            <img src="{{ entry.avatar }}" alt="Avatar" width="50">
+            <strong>{{ entry.name }}</strong>: 
+            <a href="{{ url_for('view_entry', entry_id=entry.id) }}">{{ entry.message }}</a>
+        </li>
+    {% else %}
+        <p>No entries yet.</p>
+    {% endfor %}
+</ul>
+{% endblock %}

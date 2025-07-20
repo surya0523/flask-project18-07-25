@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>All Playlists</h2>
+<form method="get">
+    <label>Filter by Genre:</label>
+    <select name="genre" onchange="this.form.submit()">
+        <option value="">All</option>
+        <option value="pop">Pop</option>
+        <option value="rock">Rock</option>
+    </select>
+</form>
+<ul>
+    {% for p in playlists %}
+    <li>
+        <img src="{{ url_for('static', filename='covers/' ~ p.cover) }}" width="80">
+        <a href="{{ url_for('playlist', playlist_id=p.id) }}">{{ p.name }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

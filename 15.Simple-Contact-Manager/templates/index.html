@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Contacts</h2>
+
+<form method="GET" action="{{ url_for('index') }}">
+    <label>Filter by city:</label>
+    <input type="text" name="city" value="{{ city_filter or '' }}">
+    <button type="submit">Filter</button>
+    {% if city_filter %}
+        <a href="{{ url_for('index') }}">Clear filter</a>
+    {% endif %}
+</form>
+
+<ul>
+    {% for contact in contacts %}
+        <li><a href="{{ url_for('contact_detail', contact_id=contact.id) }}">{{ contact.name }}</a> — {{ contact.city }}</li>
+    {% else %}
+        <li>No contacts found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

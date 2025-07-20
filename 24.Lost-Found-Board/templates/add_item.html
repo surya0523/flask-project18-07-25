@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Report Lost or Found Item</h2>
+<form method="POST">
+    <input name="title" placeholder="Item Title" required><br>
+    <select name="type" required>
+        <option value="Lost">Lost</option>
+        <option value="Found">Found</option>
+    </select><br>
+    <select name="status" required>
+        <option value="Unclaimed">Unclaimed</option>
+        <option value="Held">Held</option>
+    </select><br>
+    <textarea name="desc" placeholder="Description" required></textarea><br>
+    <input name="image" placeholder="Image filename (e.g. wallet.jpg)" required><br>
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}

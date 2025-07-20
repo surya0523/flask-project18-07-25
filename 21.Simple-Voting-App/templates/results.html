@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Voting Results</h2>
+<ul>
+    {% for name, data in options.items() %}
+        <li {% if name == selected %} style="font-weight:bold; color:green;" {% endif %}>
+            <img src="{{ url_for('static', filename='icons/' + data.icon) }}" width="80">
+            {{ name }} – {{ data.votes }} votes
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

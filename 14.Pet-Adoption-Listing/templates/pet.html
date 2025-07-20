@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>{{ pet.name }}</h2>
+    <img src="{{ url_for('static', filename='images/steptodown_26 1.png') }}" width="250" alt="{{ pet.name }}">
+    <p><strong>Type:</strong> {{ pet.type }}</p>
+    <p><strong>Age:</strong> {{ pet.age }}</p>
+    <p><strong>Description:</strong> {{ pet.description }}</p>
+
+    <a href="{{ url_for('adopt', pet_id=pet.id) }}">Adopt Me</a><br>
+    <a href="{{ url_for('index') }}">Back to list</a>
+{% endblock %}

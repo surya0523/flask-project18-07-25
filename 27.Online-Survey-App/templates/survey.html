@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Survey Form</h2>
+<form method="POST">
+  <label>Name:<br />
+    <input type="text" name="name" required />
+  </label><br/><br/>
+
+  <label>Age Group:<br />
+    <select name="age_group" required>
+      <option value="">Select...</option>
+      <option value="Under 18">Under 18</option>
+      <option value="18-30">18-30</option>
+      <option value="31-50">31-50</option>
+      <option value="51+">51+</option>
+    </select>
+  </label><br/><br/>
+
+  <label>Favorite Color:<br />
+    <input type="text" name="favorite_color" required />
+  </label><br/><br/>
+
+  <label>Satisfaction Level:<br />
+    <select name="satisfaction" required>
+      <option value="">Select...</option>
+      <option value="Very Satisfied">Very Satisfied</option>
+      <option value="Satisfied">Satisfied</option>
+      <option value="Neutral">Neutral</option>
+      <option value="Dissatisfied">Dissatisfied</option>
+      <option value="Very Dissatisfied">Very Dissatisfied</option>
+    </select>
+  </label><br/><br/>
+
+  <button type="submit">Submit Survey</button>
+</form>
+{% endblock %}

@@ -1,0 +1,25 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+nav a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #333;
+}
+form input, form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+form button {
+    padding: 8px 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+form button:hover {
+    background-color: #2980b9;
+}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if request.args.get('adopted') == 'success' %}
+        <p style="color:green;">Thank you for adopting!</p>
+    {% endif %}
+    <h2>Available Pets for Adoption</h2>
+    <ul>
+        {% for pet in pets %}
+            <li>
+                <img src="{{ url_for('static', filename='images/Manx-cat-compressed-1-768x420 1.png') }}" alt="{{ pet.name }}" width="100">
+                <strong>{{ pet.name }}</strong> ({{ pet.type }}, {{ pet.age }})
+                {% if pet.id in adopted %}
+                    <em style="color: red;">(Adopted)</em>
+                {% else %}
+                    - <a href="{{ url_for('pet_detail', pet_id=pet.id) }}">Details</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

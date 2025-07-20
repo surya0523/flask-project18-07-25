@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Adopt {{ pet.name }}</h2>
+    <form method="POST">
+        <label>Your Name:</label><br>
+        <input type="text" name="adopter_name" required><br><br>
+
+        <label>Your Email:</label><br>
+        <input type="email" name="adopter_email" required><br><br>
+
+        <button type="submit">Submit Adoption</button>
+    </form>
+    <a href="{{ url_for('pet_detail', pet_id=pet.id) }}">Back</a>
+{% endblock %}

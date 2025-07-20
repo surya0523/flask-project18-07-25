@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ log.type }} ({{ log.date }})</h2>
+<img src="{{ url_for('static', filename='icons/' + log.icon) }}" width="64">
+<p><strong>Duration:</strong> {{ log.duration }} minutes</p>
+<p><strong>Notes:</strong><br>{{ log.notes }}</p>
+<a href="{{ url_for('logs_page') }}">Back to logs</a>
+{% endblock %}

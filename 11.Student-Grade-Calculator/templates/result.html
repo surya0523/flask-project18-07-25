@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Your Score: {{ score }}</h2>
+    {% if letter == 'A' %}
+        <p class="grade a">Excellent! Grade: A</p>
+    {% elif letter == 'B' %}
+        <p class="grade b">Good Job! Grade: B</p>
+    {% elif letter == 'C' %}
+        <p class="grade c">Fair Work. Grade: C</p>
+    {% elif letter == 'D' %}
+        <p class="grade d">Needs Improvement. Grade: D</p>
+    {% else %}
+        <p class="grade f">Failed. Grade: F</p>
+    {% endif %}
+    <a href="{{ url_for('grade_form') }}">Try Again</a>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Movie List</h2>
+<form method="get">
+    <select name="genre">
+        <option value="">All</option>
+        <option value="Sci-Fi">Sci-Fi</option>
+    </select>
+    <button type="submit">Filter</button>
+</form>
+
+<ul>
+    {% for movie in movies %}
+        <li>
+            <h3>{{ movie.title }}</h3>
+            <img src="{{ url_for('static', filename='posters/' + movie.poster) }}" width="150">
+            <p>{{ movie.desc }}</p>
+            <a href="{{ url_for('movie_detail', id=movie.id) }}">View Details</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

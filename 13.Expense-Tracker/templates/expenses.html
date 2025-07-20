@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Expenses{% if selected_category %} - {{ selected_category }}{% endif %}</h2>
+
+<nav>
+    <strong>Filter by Category:</strong>
+    <a href="{{ url_for('list_expenses') }}">All</a> |
+    <a href="{{ url_for('list_expenses', category='Food') }}">Food</a> |
+    <a href="{{ url_for('list_expenses', category='Travel') }}">Travel</a> |
+    <a href="{{ url_for('list_expenses', category='Shopping') }}">Shopping</a>
+</nav>
+
+<ul>
+    {% for expense in expenses %}
+    <li>
+        <img src="{{ url_for('static', filename='icons/' + expense.category.lower() + '.png') }}" width="24" alt="{{ expense.category }}">
+        <a href="{{ url_for('expense_detail', expense_id=expense.id) }}">{{ expense.title }}</a> — ₹{{ expense.amount }} ({{ expense.category }})
+    </li>
+    {% else %}
+    <li>No expenses found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

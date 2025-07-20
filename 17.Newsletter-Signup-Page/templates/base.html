@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Newsletter Signup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1><a href="{{ url_for('signup') }}">Newsletter</a></h1>
+        <nav>
+            <a href="{{ url_for('signup') }}">Sign Up</a> |
+            <a href="{{ url_for('list_subscribers') }}">Subscribers</a>
+        </nav>
+        <hr>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

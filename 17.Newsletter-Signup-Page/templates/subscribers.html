@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Subscribers List</h2>
+
+<form method="GET" action="{{ url_for('list_subscribers') }}">
+    <label>Filter by Signup Date (YYYY-MM-DD):</label>
+    <input type="text" name="date" value="{{ date_filter or '' }}">
+    <button type="submit">Filter</button>
+    {% if date_filter %}
+        <a href="{{ url_for('list_subscribers') }}">Clear Filter</a>
+    {% endif %}
+</form>
+
+<ul>
+    {% for sub in subscribers %}
+        <li>{{ sub.name }} - {{ sub.email }} (Signed up on {{ sub.date }})</li>
+    {% else %}
+        <li>No subscribers found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

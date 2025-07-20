@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Appointment Scheduler</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header>
+  <h1>📅 Appointment Scheduler</h1>
+  <nav>
+    <a href="{{ url_for('add') }}">Add Appointment</a> |
+    <a href="{{ url_for('list_appointments') }}">View Appointments</a>
+  </nav>
+  <hr />
+</header>
+<main>
+  {% block content %}{% endblock %}
+</main>
+</body>
+</html>

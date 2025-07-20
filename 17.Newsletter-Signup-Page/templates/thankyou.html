@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Thank You for Signing Up!</h2>
+<p>We appreciate your interest.</p>
+<a href="{{ url_for('signup') }}">Back to Signup</a> |
+<a href="{{ url_for('list_subscribers') }}">View Subscribers</a>
+{% endblock %}

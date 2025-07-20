@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Add Workout</h2>
+<form method="POST">
+    <label>Workout Type:</label><br>
+    <input type="text" name="type" required><br><br>
+    
+    <label>Duration (minutes):</label><br>
+    <input type="number" name="duration" required><br><br>
+
+    <label>Date:</label><br>
+    <input type="date" name="date" required><br><br>
+
+    <label>Notes:</label><br>
+    <textarea name="notes"></textarea><br><br>
+
+    <button type="submit">Add Log</button>
+</form>
+{% endblock %}

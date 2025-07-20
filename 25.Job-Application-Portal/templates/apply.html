@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Apply for {{ job.title }}</h2>
+<form method="POST">
+    <input name="name" placeholder="Your Name" required><br>
+    <input name="email" placeholder="Your Email" required><br>
+    <textarea name="resume" placeholder="Paste your resume here" required></textarea><br>
+    <button type="submit">Submit Application</button>
+</form>
+{% endblock %}

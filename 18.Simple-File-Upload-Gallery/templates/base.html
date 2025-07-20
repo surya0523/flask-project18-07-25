@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>File Gallery</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>📁 File Gallery</h1>
+  <nav>
+    <a href="{{ url_for('upload') }}">Upload</a> |
+    <a href="{{ url_for('gallery') }}">Gallery</a>
+  </nav>
+  <hr>
+  {% block content %}{% endblock %}
+</body>
+</html>

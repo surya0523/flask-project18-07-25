@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Reminder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1><a href="{{ url_for('list_reminders') }}">Task Reminder App</a></h1>
+        <nav>
+            <a href="{{ url_for('list_reminders') }}">Reminders</a> |
+            <a href="{{ url_for('add_reminder') }}">Add Reminder</a>
+        </nav>
+        <hr>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

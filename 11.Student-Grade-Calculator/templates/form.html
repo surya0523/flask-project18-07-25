@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <form method="POST">
+        <label for="score">Enter your score (0-100):</label><br>
+        <input type="text" name="score" required><br><br>
+        <button type="submit">Calculate Grade</button>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+    </form>
+{% endblock %}

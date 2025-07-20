@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Upcoming Events</h1>
+
+{% if registered %}
+    <p style="color: green;">✅ Registration successful!</p>
+{% endif %}
+
+{% for event in events %}
+    <div>
+        <h2>{{ event.title }}</h2>
+        <img src="{{ url_for('static', filename='images/' + event.image) }}" width="200">
+        <p>{{ event.desc }}</p>
+        <p><strong>Date:</strong> {{ event.date }}</p>
+        <a href="{{ url_for('event_detail', event_id=event.id) }}">View & Register</a>
+    </div>
+{% endfor %}
+{% endblock %}

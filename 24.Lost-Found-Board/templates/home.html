@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Lost & Found Items</h2>
+<form method="get">
+    <select name="type">
+        <option value="">All Types</option>
+        <option value="Lost">Lost</option>
+        <option value="Found">Found</option>
+    </select>
+    <select name="status">
+        <option value="">All Status</option>
+        <option value="Unclaimed">Unclaimed</option>
+        <option value="Held">Held</option>
+    </select>
+    <button type="submit">Filter</button>
+</form>
+
+<ul>
+    {% for item in items %}
+        <li>
+            <h3>{{ item.title }}</h3>
+            <img src="{{ url_for('static', filename='images/' + item.image) }}" width="150">
+            <p>{{ item.desc }}</p>
+            <a href="{{ url_for('item_detail', id=item.id) }}">View Details</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}

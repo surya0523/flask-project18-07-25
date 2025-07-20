@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('home') }}">All</a>
+        <a href="{{ url_for('home') }}?completed=true">Completed</a>
+        <a href="{{ url_for('home') }}?completed=false">Pending</a>
+    </nav>
+    {% block content %}{% endblock %}
+</body>
+</html>

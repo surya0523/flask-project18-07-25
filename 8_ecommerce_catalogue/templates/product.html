@@ -1,0 +1,12 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h2>{{ product.name }}</h2>
+<img src="{{ url_for('static', filename=product.image) }}" width="200"><br>
+<p>Price: ₹{{ product.price }}</p>
+<form action="/add-to-cart" method="POST">
+    <input type="hidden" name="product_id" value="{{ product.id }}">
+    <button type="submit">Add to Cart</button>
+</form>
+<a href="/">Back</a>
+{% endblock %}

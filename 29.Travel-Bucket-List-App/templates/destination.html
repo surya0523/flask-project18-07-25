@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Destinations{% if region_filter %} in {{ region_filter }}{% endif %}</h2>
+
+<form method="get" action="{{ url_for('destination_list') }}">
+    <label>Filter by Region:</label>
+    <select name="region">
+        <option value="">All</option>
+        <option value="Asia">Asia</option>
+        <option value="Europe">Europe</option>
+        <option value="America">America</option>
+    </select>
+    <button type="submit">Filter</button>
+</form>
+
+<div class="dest-grid">
+    {% for d in destinations %}
+        <div class="dest-card">
+            <img src="{{ url_for('static', filename='images/' + d.image) }}" alt="{{ d.name }}" width="200">
+            <h3>{{ d.name }}</h3>
+            <p>{{ d.region }}</p>
+        </div>
+    {% else %}
+        <p>No destinations found.</p>
+    {% endfor %}
+</div>
+{% endblock %}

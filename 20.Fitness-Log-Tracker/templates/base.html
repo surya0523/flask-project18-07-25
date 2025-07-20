@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fitness Log Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>🏋️‍♀️ Fitness Tracker</h1>
+        <nav>
+            <a href="{{ url_for('add') }}">Add Workout</a> |
+            <a href="{{ url_for('logs_page') }}">View Logs</a>
+        </nav>
+        <hr>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

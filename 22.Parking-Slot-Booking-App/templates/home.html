@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Available Parking Slots</h2>
+<form method="get">
+    <input type="date" name="date">
+    <button type="submit">Filter</button>
+</form>
+
+<ul>
+    {% for slot in slots %}
+        {% if slot.available %}
+            <li>
+                {{ slot.location }} – {{ slot.date }}
+                <a href="{{ url_for('book', id=slot.id) }}">Book Now</a>
+            </li>
+        {% else %}
+            <li style="color: gray;">{{ slot.location }} – {{ slot.date }} (Booked)</li>
+        {% endif %}
+    {% endfor %}
+</ul>
+{% endblock %}

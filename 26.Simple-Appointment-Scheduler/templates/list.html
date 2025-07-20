@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Appointments</h2>
+
+<form method="GET">
+  <label>Filter by date:
+    <input type="date" name="date" value="{{ filter_date or '' }}">
+  </label>
+  <button type="submit">Filter</button>
+  {% if filter_date %}
+  <a href="{{ url_for('list_appointments') }}">Clear</a>
+  {% endif %}
+</form>
+
+<ul>
+  {% for appt in appointments %}
+    <li>
+      <a href="{{ url_for('detail', appointment_id=appt.id) }}">
+        {{ appt.name }} — {{ appt.date }} at {{ appt.time }}
+      </a>
+    </li>
+  {% else %}
+    <li>No appointments found.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

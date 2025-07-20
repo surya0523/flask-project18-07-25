@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Welcome to the Poll Voting System</h2>
+<p>Cast your vote and see how your choice compares with others!</p>
+<a href="{{ url_for('poll_page') }}">
+    <button>Go to Poll</button>
+</a>
+<a href="{{ url_for('results') }}">
+    <button>View Results</button>
+</a>
+{% endblock %}

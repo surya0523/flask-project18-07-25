@@ -1,0 +1,8 @@
+
+{% extends "base.html" %}
+{% block content %}
+<h2>Weather in {{ city }}</h2>
+<p>Temperature: {{ data.temp }}</p>
+<p>Status: {{ data.status }}</p>
+<img src="{{ url_for('static', filename=data.icon) }}" width="100">
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Workout Logs</h2>
+
+<form method="GET">
+    <label>Filter by Date:</label>
+    <input type="date" name="date" value="{{ filter_date or '' }}">
+    <button type="submit">Filter</button>
+    {% if filter_date %}
+        <a href="{{ url_for('logs_page') }}">Clear</a>
+    {% endif %}
+</form>
+
+<ul>
+    {% for log in logs %}
+        <li>
+            <img src="{{ url_for('static', filename='icons/' + log.icon) }}" width="32">
+            <strong>{{ log.type }}</strong> on {{ log.date }} 
+            for {{ log.duration }} mins –
+            <a href="{{ url_for('log_detail', log_id=log.id) }}">View</a>
+        </li>
+    {% else %}
+        <li>No logs found.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

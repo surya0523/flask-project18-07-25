@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ poll.question }}</h2>
+<form method="POST">
+    {% for option in poll.options %}
+        <label>
+            <input type="radio" name="option" value="{{ loop.index0 }}" required>
+            {{ option }}
+        </label><br>
+    {% endfor %}
+    <button type="submit">Vote</button>
+</form>
+{% endblock %}

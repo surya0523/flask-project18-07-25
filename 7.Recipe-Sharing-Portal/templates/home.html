@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>All Recipes</h2>
+<form method="get">
+    <select name="category">
+        <option value="">All</option>
+        <option value="South Indian">South Indian</option>
+        <option value="Italian">Italian</option>
+    </select>
+    <button type="submit">Filter</button>
+</form>
+
+{% for r in recipes %}
+    <div>
+        <h3>{{ r.title }}</h3>
+        <img src="{{ url_for('static', filename='images/' + r.image) }}" width="200">
+        <p>{{ r.desc }}</p>
+        <a href="{{ url_for('recipe_detail', id=r.id) }}">View Details</a>
+    </div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Add Appointment</h2>
+<form method="POST">
+  <label>Name:<br><input type="text" name="name" required></label><br><br>
+  <label>Date:<br><input type="date" name="date" required></label><br><br>
+  <label>Time:<br><input type="time" name="time" required></label><br><br>
+  <label>Notes:<br><textarea name="notes"></textarea></label><br><br>
+  <button type="submit">Add</button>
+</form>
+{% endblock %}

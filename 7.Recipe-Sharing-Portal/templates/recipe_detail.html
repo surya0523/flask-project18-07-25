@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ recipe.title }}</h2>
+<img src="{{ url_for('static', filename='images/' + recipe.image) }}" width="300">
+<p><strong>Category:</strong> {{ recipe.category }}</p>
+<p>{{ recipe.desc }}</p>
+{% endblock %}

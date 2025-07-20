@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Cast Your Vote</h2>
+<form method="POST">
+    {% for name, data in vote_options.items() %}
+        <label>
+            <input type="radio" name="option" value="{{ name }}" required>
+            <img src="{{ url_for('static', filename='icons/' + data.icon) }}" width="80">
+            {{ name }}
+        </label><br><br>
+    {% endfor %}
+    <button type="submit">Submit Vote</button>
+</form>
+{% endblock %}
